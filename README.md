@@ -1,6 +1,8 @@
 # htmlCOde
 some Problems at work
 
+下面的内容请忽略！！~
+
 ```
 # change directory. 
 cd light-blue-angular2-seed 
