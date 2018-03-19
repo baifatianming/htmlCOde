@@ -1,0 +1,1 @@
+jq拖动插入DOM的插件 http://www.jq22.com/yanshi10850
