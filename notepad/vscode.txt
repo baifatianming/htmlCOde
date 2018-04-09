@@ -1,3 +1,0 @@
-vscode同步插件token: 	按shift+alt+u在弹出窗里输入你的token	
-		
-  784449fd77ffa2bc554491677bfba855d9ef825e
