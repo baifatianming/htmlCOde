@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    progress {
+        width: 160px;
+        border: 1px solid #0064B4;  
+        background-color:#e6e6e6;
+        color: #0064B4; /*IE10*/
+    }
+    
+    progress::-moz-progress-bar { background: #0064B4; }
+    progress::-webkit-progress-bar { background: #e6e6e6; }
+    progress::-webkit-progress-value  { background: #0064B4; }
+</style>
+<body>
+    <!-- 默认不给value值，进度条一直来回循环 -->
+    <progress></progress>    
+    <br><br>
+    <hr>
+    <br>
+    <!--  -->
+    <progress value="20" max="100"></progress>    
+    <br><br>
+    <hr>
+</body>
+</html>

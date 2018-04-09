@@ -1,0 +1,11 @@
+git add .			    添加到暂存区
+
+git commit -m ''		    添加到    
+
+git checkout -- .                   放弃本地所有的修改
+
+git rm -r --cached file             用git add 后，删除添加到暂存区里的file文件
+
+git rm --cached file                忽略文件 添加到girtignore
+
+npm install --save name@1.0.0       安装带版本号的module并保存到dependencies,

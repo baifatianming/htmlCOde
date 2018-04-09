@@ -1,0 +1,117 @@
+
+
+typescript
+prublic: 公有的，class里面和外面都是引用 
+protected: 私有的，子类可以引用
+private: 只有fn可以引用
+
+创建项目cli脚手架: ng new my-app(项目名称)
+
+创建组件：  ng g component components/home
+
+创建服务(service) ng g service my-new-service
+
+创建路由： ng new angular-routering-demo --routing
+ 
+绑定属性： {{}};
+	1. id = "{{msg}}"
+	2. [id]="msg"
+
+绑定后台的html数据： <div innerHTML="data"></div>
+
+条件判断语句：*ngIf="flah"  //flag=true的情况下面显示
+
+循环： *ngFor   索引key
+
+	<li *ngFor="let item of list";let key="index">
+		{{item}}--{{key}}
+	</li>
+
+	<li template="ngFor let item of list"; let key="index">
+		{{item}}--{{key}}
+	</li>
+
+绑定方法： (click)="fun($event)"
+
+双向数据绑定: app.module.ts 文件里面要引入 FormsModule from '@angular/forms';
+
+		并且在imports:里面声明
+
+	运用： <input type="text" [(ngModel)]="search">
+
+父=>子组件传值： Input Output viewChild
+
+		
+		Input() 接受值
+		父组件： <header [msg]="msg"></header>
+		子组件： import {Input} from '@angular/core'; @Input() mdg;  
+		调用：this.mdg();
+
+(父组件调用子组件的方法)
+	父组件: @ViewChild("tips") componentChild;    html标签里面带有#tips属性
+	调用： this.compnentChild可以获取子组件实例
+		
+子传父: (子组件执行父组件中的方法) Output() 暴露组件方法，值
+	父组件：<footer (name)="method($event)"></footer>   // $event传参,绑定事件“name”到method()方法上
+	子组件: import {Output,} from '@angular/core'; @Output name = new EventEmitter() // 定义name的监听事件，并传出去，
+	调用： this.name.emit();
+
+路由： router
+
+js路由跳转 :  this.router.navigate(['/news','123']) 					localhost:3000/news/123
+	      this.router.navigate(['/login'], { queryParams: { returnUrl: 123 }});	localhost:3000/login?returnUrl=123
+
+路由拦截:  canActivate
+
+获取url？后面的参数:  this.router.quaryParams.subscribe( data => { data.id } )  //获取后要通过subscribe转成json对象
+
+怎么监听 ngFor 遍历出来后：
+	 监听last值，并赋值给last1:  	<tr *ngFor="let item of dataList; let last1 = last;"</tr>
+	 用一个空标签接收last值是，boolean类型：		<islast [msg]="last1" (init)="treetable()"></islast>
+
+获取DOM元素,对DOM添加样式：import { ElementRef, Renderer } from '@angular/core'
+	constructor(private el: ElementRef,private renderer: Renderer ){}
+
+ 调用: this.el.querySelector('.class')
+	this.renderer.setElementStyle(this.el.querySelector('.class'),"background-color","red");
+		      setElementAttribute
+		      setElementClass
+
+识别带标签字符串：[innerHtml]="var"
+
+动态创建组件： ComponentFactoryResolver
+
+	div容器：	@ViewChild('dmroom', {read:ViewContainerRef}) dmRoom:ViewContainerRef
+
+	constructor(
+        	private cfr: ComponentFactoryResolver
+    	) {} 
+
+	addComponent() {
+		// coms 是配置的component数组
+        	let com = this.cfr.resolveComponentFactory(coms['MenuManager']);
+        	console.log(this.dmRoom);
+        	this.dmRoom.createComponent(com);
+    	}
+
+还要在NgModule配置： entryComponents:[...reportComs]
+
+带trackBy的*ngFor : 避免重复操作DOM
+
+	<div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+  		({{hero.id}}) {{hero.name}}
+	</div>
+
+模板应用变量（#var）或者 （ref-var）
+	<input #phone placeholder="phone number">
+	<button (click)="callPhone(phone.value)">Call</button>
+
+	
+身处凛冽，心似火焰
+人心自有一杆秤
+但行好事，莫问前程
+不做思想上的巨人，行动上的侏儒
+你不会遇到第二个我，友情也好，爱情也罢。——宫崎骏《千与千寻》
+我是甚么，在十个当中的一个；我就是我，是不一样的烟火。
+繁华落尽，洗净铅华；当离城魔，偶归乡甜。
+落霞与孤鹜齐飞，秋水共长天一色。

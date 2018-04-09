@@ -1,0 +1,22 @@
+[abc] a或b或c . 任意单个字符 a? 零个或一个a
+[^abc] 任意不是abc的字符 \s 空格 a* 零个或多个a
+[a-z] a-z的任意字符 \S 非空格 a+ 一个或多个a
+[a-zA-Z] a-z或A-Z \d 任意数字 a{n} 正好出现n次a
+^ 一行开头 \D 任意非数字 a{n,} 至少出现n次a
+$ 一行末尾 \w 任意字母数字或下划线 a{n,m} 出现n-m次a
+(...) 括号用于分组 \W 任意非字母数字或下划线 a*? 零个或多个a(非贪婪)
+(a|b) a或b \b 单词边界 (a)...\1 引用分组
+(?=a) 前面有a (?!a) 前面没有a \B 非单词边界
+
+
+匹配base64图片的正则： /(data:\s*image\/(\w+);base64,([\w|\/|\+]+)(=+))/ig
+
+
+var XHP = new XMLHttpRequest();
+XHP.open('GET',url,true);
+XHP.onreadystatechange = function(){
+   if(XHP.readyState === 4 && XHP.status === 200 || XHP.status == 304){
+	fn.call(this,XHP.responseText);
+  }	
+}
+XHP.send();
