@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <style>
+    /* 绝对定位+margin：auto */
     /*margin是居中的关键，当前width、height也要有*/
     div {
         width: 100px;
@@ -28,6 +29,7 @@
     }
 
     /* 定位垂直居中 */
+    /* 绝对定位+margin反向偏移； 绝对定位+transform反向偏移 */
     .div {
         position: relative;
         width: 100px;
@@ -39,6 +41,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        /* margin-left: -50px;
+        margin-top: -50px; */
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
     }
@@ -54,6 +58,7 @@
         justify-content: center;
     }
 
+    /* table垂直居中 */
     .div3 {
         display: table-cell;
         vertical-align: middle;
