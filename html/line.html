@@ -47,7 +47,28 @@
             border-bottom: 10px solid blue;
             border-top: 10px solid red;
         }
+        .btn {
+            width: 200px;
+            height: 50px;
+            border-radius: 25px ;
+            background-color: red;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+        }
+        .btn:after, .btn:before{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            content:"";
+            border-radius: 50%;
+            background-color: #fff;  
+        }
+        .btn:before {
+        }
+        .btn:after {
 
+        }
     </style>
     <div class="line"></div>
 
@@ -55,5 +76,8 @@
     <div class="you"></div>
     <div class="xia"></div>
     <div class="zuo"></div>
+    <div class="btn">
+        高颜值1V1视频聊天
+    </div>
 </body>
 </html>

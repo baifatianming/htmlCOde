@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <title>Document</title>
 </head>
 <style>
+    /*margin是居中的关键，当前width、height也要有*/
     div {
         width: 100px;
         height: 100px;
         border: 2px solid red;
         margin-bottom: 10px;
     }
+
     .div1 {
         width: 100px;
         height: 100px;
@@ -21,36 +24,66 @@
         left: 0;
         right: 0;
         bottom: 0;
-        /*margin是居中的关键，当前width、height也要有*/
         margin: auto;
     }
+
+    /* 定位垂直居中 */
     .div {
         position: relative;
         width: 100px;
         height: 100px;
         border: 2px solid yellow;
     }
+
     .span1 {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
     }
+
+    /* flex垂直居中，有兼容问题 */
     .div2 {
         display: flex;
-        display: -webkit-flex; /* Safari */
+        display: -webkit-flex;
+        /* Safari */
         -webkit-align-items: center;
         align-items: center;
         -webkit-justify-content: center;
         justify-content: center;
     }
+
     .div3 {
         display: table-cell;
         vertical-align: middle;
         text-align: center;
     }
+
+    /* 伪类垂直居中 */
+
+    .pic_box {
+        width: 300px;
+        height: 300px;
+        background-color: #beceeb;
+        font-size: 0;
+        *font-size: 200px;
+        text-align: center;
+    }
+    .pic_box img {
+        vertical-align: middle;
+    }
+
+    .pic_box:after {
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        content: "center";
+        vertical-align: middle;
+        overflow: hidden;
+    }
 </style>
+
 <body>
     <div class="div1"></div>
     <div class="div">
@@ -63,5 +96,10 @@
     <div class="div3">
         <span>div3</span>
     </div>
+
+    <div class="pic_box">
+        <img src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg" />
+    </div>
 </body>
+
 </html>
