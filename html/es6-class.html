@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 类相当于实例的原型， 所有在类中定义的方法， 都会被实例继承。 如果在一个方法前，
+        // 加上static关键字， 就表示该方法不会被实例继承， 而是直接通过类来调用， 这就称为“ 静态方法。
+        class staticMethodParent {
+            static getCommon() { // static 静态方法，只能被自己调用，或者被子类继承
+                return "父类的静态方法";
+            }
+
+        }
+        // 静态属性指的是 Class 本身的属性， 即Class.propname， 而不是定义在实例对象（ this） 上的属性。
+        // 目前， 只有这种写法可行， 因为 ES6 明确规定， Class 内部只有静态方法， 没有静态属性。
+        staticMethodParent.prop = 'dsddfsdf';
+
+
+        class staticMethod extends staticMethodParent {
+            // 下面代码中， myProp就是staticMethod的实例属性。 在staticMethod的实例上， 可以读取这个属性。
+             myProp = 'dsadasd'
+
+            constructor() {
+                super();
+                this.height = 777;
+                this.name = "7醬";
+                // super.getCommon();
+            }
+
+            static getAge() {
+                console.log(super.getCommon());
+                return "获取Age的静态方法";
+            }
+
+            page() {
+                return "原型方法";
+            }
+
+            getHeight() {
+                return this.height;
+            }
+
+            getName() {
+                return this.name;
+            }
+        }
+        console.log(staticMethodParent.getCommon());
+        console.log(staticMethod.getCommon());
+        console.log(staticMethod.getAge());
+        var a = new staticMethod();
+        console.log(a.page(),a.getHeight(), a.getName());
+        
+
+        var s = new Set();
+        var x = [], y = {id: 2};
+        
+
+    </script>
+</body>
+
+</html>

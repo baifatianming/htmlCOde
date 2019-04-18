@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+</body>
+<script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+    let cw = canvas.width = window.innerWidth;
+    let ch = canvas.height = window.innerHeight;
+    class heart { 
+        love() {
+            context.beginPath();
+            context.translate(cw/2-100,ch/2-100);
+            context.scale(100,100);
+            context.arc(-1, 0, 1, Math.PI, 0, false);
+            context.arc(1, 0, 1, Math.PI, 0, false);
+            context.bezierCurveTo(2, 1.1, 1, 1.7, 0, 3);
+            context.bezierCurveTo(-1, 2, -2, 1, -2, 0);
+            context.shadowColor = '#A2AABA';
+            context.shadowOffsetX = 5;
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 5;
+            context.fillStyle = 'red';
+            context.fill()
+        }
+        meeting() {
+            this.love();
+        }
+    }
+
+    let fate = new heart()
+    fate.meeting();
+</script>
+</html>

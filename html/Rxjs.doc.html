@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.7/dist/global/Rx.umd.js"></script>
+</head>
+
+<body>
+    <input type="text" id="todo">
+    <button id="addBtn">Add</button>
+</body>
+<script>
+    let todo = document.getElementById('todo');
+    let input$ = Rx.Observable.fromEvent(todo, 'keyup');
+    input$
+        .filter(ev => ev.keyCode === 32)
+        .subscribe(ev => console.log(ev.target.value));
+
+    let addBtn = document.getElementById('addBtn');
+    let buttonClick$ = Rx.Observable
+        .fromEvent(addBtn, 'click')
+        .mapTo('clicked');
+
+    var numbers = Rx.Observable.of(10, 20, 30);
+    var letters = Rx.Observable.of('a', 'b', 'c');
+    var interval = Rx.Observable.interval(1000);
+    var result = numbers.concat(letters);
+    result.subscribe(x => console.log(x));
+</script>
+
+</html>
